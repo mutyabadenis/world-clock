@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+</head>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  background-color:#777;
+}
+#clock h1 {
+text-align: center;
+font-size: 2em;
+letter-spacing: 2px;
+}
+#clock #time {
+  display: flex;
+}
+#clock #time div {
+  position: relative;
+  margin: 0 5px;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, #777);
+}
+#clock #time div span {
+  position: relative;
+  display: block;
+  width: 150px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: #fff;
+  font-weight: 300px;
+  z-index: 8px;
+  box-shadow: 0 0 0 1px rgb(0,0,0,0.2);
+}
+#clock #time div span:nth-child(2) {
+background-color: #555;
+color: black;
+height: 30px;
+}
+#clock #time div:last-child span {
+background-color:rgb(228, 192, 214);
+color: #000;
+} 
+
+</style>
+<body>
+<div id="clock">
+  <h1>THE WORLD CLOCK BY DENIS</h1> 
+<div id="time">
+<div><span id="hours">00</span><span>HOURS</span></div>
+<div><span id="min">00</span><span>MINUTES</span></div>
+<div><span id="sec">00</span><span>SECONDS</span></div>
+<div><span id="milsec">00</span><span>MILLISECONDS</span></div>
+</div>
+
+</div>
+
+
+    <script>
+      function clock() {
+let hours= document.querySelector('#hours');
+let min= document.querySelector('#min');
+let sec= document.querySelector('#sec');
+let milsec= document.querySelector('#milsec');
+
+let h= new Date().getHours();
+let m= new Date().getMinutes();
+let s= new Date().getSeconds();
+let ms= new Date().getMilliseconds();
+
+hours.innerHTML= h;
+min.innerHTML= m;
+sec.innerHTML= s;
+milsec.innerHTML= ms;
+
+      }
+      var interval= setInterval(clock,100)
+        </script>
+</body>
+</html>
